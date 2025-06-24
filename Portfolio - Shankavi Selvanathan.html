@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shankavi Selvanathan | Data Science & AI Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+:root {
+    --primary: #0d0d0d;            /* Noir futuriste */
+    --secondary: #1a1a1a;          /* Gris foncé tech */
+    --accent: #00fff7;             /* Bleu néon */
+    --light: #e1e1e1;
+    --dark: #0b0f1a;               /* Noir bleuté profond */
+    --text: #e6f1ff;
+    --text-light: #7e97aa;
+}
+
+/* Ajoute ceci pour l'effet de texte lumineux sur les titres */
+.header-content h1 {
+    text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+}
+
+/* Applique le fond d'écran directement au body */
+body {
+    background-image: url('https://raw.githubusercontent.com/Shanka743/Portfolio/refs/heads/main/IA-3.png'); /* Remplace par l'URL directe de ton image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: var(--dark);  /* Couleur de fond de secours si l'image ne charge pas */
+}
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background-color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header with AI Theme */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(100, 255, 218, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(100, 255, 218, 0.1) 0%, transparent 20%),
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgxMDAsMjU1LDIxOCwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .binary-code {
+            position: absolute;
+            color: rgba(100, 255, 218, 0.1);
+            font-family: monospace;
+            font-size: 1rem;
+            user-select: none;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-100vh) translateX(20px); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .header-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header-content p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .ai-badge {
+            display: inline-block;
+            background-color: rgba(100, 255, 218, 0.2);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--accent);
+            font-size: 0.9rem;
+            margin: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(100, 255, 218, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--accent);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        /* Navigation with AI Theme */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--light);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            margin: 1rem auto;
+        }
+        
+        /* About Section with AI Theme */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-icon {
+            color: var(--accent);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            top: 15px;
+            left: 15px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        /* Projects Section with AI Theme */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(100, 255, 218, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgxMDAsMjU1LDIxOCwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+        
+        .project-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .project-tag {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        /* Modal with AI Theme */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--primary);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 5px 30px rgba(100, 255, 218, 0.2);
+            position: relative;
+            border: 1px solid var(--accent);
+        }
+
+        .modal-content h2 {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-content h3 {
+            color: var(--light);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .modal-content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content ul li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .close {
+            color: var(--accent);
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: var(--light);
+        }
+        
+        /* Specialties Section with AI Theme */
+        .specialties-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .specialty-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .specialty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.1);
+            border-color: var(--accent);
+        }
+        
+        .specialty-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .specialty-card h3 {
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        
+        .specialty-card p {
+            color: var(--text-light);
+        }
+        
+        /* Timeline Section with AI Theme */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            opacity: 0.5;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border: 4px solid var(--accent);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: var(--secondary);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+        
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            color: var(--text-light);
+        }
+        
+        /* Contact Section with AI Theme */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            color: var(--accent);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--secondary);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary);
+            color: var(--light);
+            transition: border-color 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Footer with AI Theme */
+        footer {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-content h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            color: var(--light);
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left, .right {
+                left: 0;
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem;
+            }
+        }
+
+        #navbar {
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--primary); /* ou autre couleur de fond adaptée */
+    color: var(--text);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--accent);
+}
+
+@keyframes pulseBorder {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 255, 247, 0.3);
+        border-color: rgba(0, 255, 247, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 255, 247, 0.6);
+        border-color: rgba(0, 255, 247, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 255, 247, 0.3);
+        border-color: rgba(0, 255, 247, 0.2);
+    }
+}
+
+.about-section {
+    padding: 80px 0;
+    color: var(--text);
+    position: relative;
+}
+
+.about-text {
+    background: rgba(13, 13, 13, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 255, 247, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    animation: pulseBorder 3s infinite ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+.about-text:hover {
+    transform: scale(1.01);
+}
+
+.about-text h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+.about-text h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.flip-card {
+    background: transparent;
+    width: 100%;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    background: var(--secondary);
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Binary Code Animation -->
+    <div class="binary-code" style="top: 10%; left: 5%;">10101010</div>
+    <div class="binary-code" style="top: 30%; left: 15%;">11001100</div>
+    <div class="binary-code" style="top: 50%; left: 25%;">11110000</div>
+    <div class="binary-code" style="top: 70%; left: 35%;">10100101</div>
+    <div class="binary-code" style="top: 90%; left: 45%;">01011010</div>
+    <div class="binary-code" style="top: 20%; left: 75%;">00110011</div>
+    <div class="binary-code" style="top: 40%; left: 85%;">11000011</div>
+    <div class="binary-code" style="top: 60%; left: 65%;">11111100</div>
+    
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Shankavi</a>
+            <ul class="nav-links">
+                <li><a href="#about">Profil</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#timeline">Parcours</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#specialties">Expertise</a></li>
+                <li><a href="#stage">Stages</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    
+    <!-- Hero Section -->
+    <header>
+        <div class="header-content">
+            <h1>Shankavi Selvanathan</h1>
+            <p>Étudiante en Science des Données | Spécialisée en exploration et modélisation statistique</p>
+            <div>
+                <span class="ai-badge">Traitement de données</span>
+                <span class="ai-badge">Analyse de données</span>
+                <span class="ai-badge">Valorisation de données</span>
+                <span class="ai-badge">Modélisation de données</span>
+            </div>
+            <a href="#about" class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Profil</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>À propos de moi</h3>
+                    <p>Je m'appelle Shankavi Selvanathan, je suis actuellement en deuxième année de Bachelor Universitaire de Technologie (BUT) en Science des Données à l'Institut Universitaire de Technologie de Villetaneuse.</p>
+                    <p>Je suis passionnée par l'apprentissage automatique des systèmes notamment dans le domaine du machine learning. En effet, je passe la plupart de mon temps libre à explorer des projets open-source sur Github et à découvrir de nouveaux concepts sur Linkedin afin de développer mes connaissances dans le domaine du machine learning.</p>
+                    
+                    <h4>🎯Data scientist</h4>
+                    <p>
+                        Mon objectif est d'exercer le métier de data scientist. Dans cet objectif, j'ai déjà commencé à :
+                        <br><br>
+                        🔹 Développer mes connaissances en machine learning par le biais de GitHub et LinkedIn<br>
+                        <br>
+                        🔹 Approfondir mes connaissances en intelligence artificielle en consultant régulièrement des podcasts à ce sujet
+                        <br><br>
+                        🔹 Suivre plusieurs data scientists sur LinkedIn qui partagent leur expérience sur le métier
+                    </p>
+                    
+                    
+                </div>
+                <div class="about-image">
+                    <img src="https://raw.githubusercontent.com/Shanka743/Portfolio/refs/heads/main/photo-pro.png" alt="Photo de Shankavi Selvanathan">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mon Parcours</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2026</div>
+                        <h3>BUT Science des Données</h3>
+                        <p>Institut Universitaire de Technologie de Villetaneuse rattaché à l'Université Sorbonne Paris Nord</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Avril - Juin 2025</div>
+                        <h3>Stage - GHT Plaine de France</h3>
+                        <p>Traitement de données massives menée à l’Hôpital de Gonesse et à l’Hôpital de Saint-Denis</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Objectif pour Septembre 2025</div>
+                        <h3>Alternance en Data Science</h3>
+                        <p>Recherche d'une alternance de 12 mois à partir de septembre 2025 pour approfondir mes compétences en traitement de données</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Objectif à long terme</div>
+                        <h3>Data Scientist</h3>
+                        <p>Poursuite d'études en école d'ingénieurs (Bac+5/6) pour devenir data scientist et produire des prédictions impactantes dans la prise de décision</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            body {
+            background-image: url('https://raw.githubusercontent.com/Shanka743/Portfolio/refs/heads/main/IA-3.png'); /* Remplace par l'URL directe de ton image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: var(--dark);  /* Couleur de fond de secours si l'image ne charge pas */
+            }
+
+            body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+            }
+            .projects-section {
+              padding: 50px 0;
+              background-color: transparent;
+            }
+            .container {
+              max-width: 1000px;
+              margin: auto;
+              padding: 20px;
+            }
+            .section-title h2 {
+              text-align: center;
+              font-size: 2rem;
+              margin-bottom: 30px;
+            }
+            .projects-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 20px;
+            }
+            .project-card {
+              background-color: #fff;
+              padding: 20px;
+              border-radius: 15px;
+              box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+              cursor: pointer;
+              transition: transform 0.2s;
+            }
+            .project-card:hover {
+              transform: scale(1.02);
+            }
+            .project-image img {
+              width: 100%;
+              height: auto;
+              border-radius: 10px;
+            }
+        
+            /* Poésie en grand au centre */
+            #poetry-text {
+              display: none;
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 80%;
+              background-color: #fff8e1;
+              padding: 40px;
+              border: 2px solid #ccc;
+              border-radius: 20px;
+              font-size: 1.5rem;
+              text-align: center;
+              z-index: 999;
+              box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            }
+        
+            /* Optionnel : bouton de fermeture */
+            #close-poetry {
+              position: absolute;
+              top: 10px;
+              right: 20px;
+              font-size: 2rem;
+              cursor: pointer;
+              color: #333;
+            }
+          </style>
+        </head>
+        <body>
+        
+
+                <style>
+                    body {
+                    background-image: url('https://raw.githubusercontent.com/Shanka743/Portfolio/refs/heads/main/IA-3.png'); /* Remplace par l'URL directe de ton image */
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-position: center;
+                    background-color: var(--dark);  /* Couleur de fond de secours si l'image ne charge pas */
+                    }
+
+                    body {
+                      font-family: Arial, sans-serif;
+                      margin: 0;
+                      padding: 0;
+                    }
+                    .projects-section {
+                      padding: 50px 0;
+                      background-color: #f0f0f0;
+                    }
+                    .container {
+                      max-width: 1000px;
+                      margin: auto;
+                      padding: 20px;
+                    }
+                    .section-title h2 {
+                      text-align: center;
+                      font-size: 2rem;
+                      margin-bottom: 30px;
+                    }
+                    .projects-grid {
+                      display: grid;
+                      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                      gap: 20px;
+                    }
+                    .project-card {
+
+                      padding: 20px;
+                      border-radius: 15px;
+                      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                      cursor: pointer;
+                      transition: transform 0.2s;
+                      position: relative;
+                    }
+                    .project-card:hover {
+                      transform: scale(1.02);
+                    }
+                    .project-image img {
+                      width: 100%;
+                      height: auto;
+                      border-radius: 10px;
+                    }
+                    .project-card h3 {
+                      margin-top: 15px;
+                      font-size: 1.2rem;
+                    }
+                
+                    /* Poésie en grand au centre */
+                    #poetry-text {
+                      display: none;
+                      position: fixed;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      width: 80%;
+                      background-color: #fff8e1;
+                      padding: 40px;
+                      border: 2px solid #ccc;
+                      border-radius: 20px;
+                      font-size: 1.5rem;
+                      text-align: center;
+                      z-index: 999;
+                      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+                    }
+                
+                    /* Optionnel : bouton de fermeture */
+                    #close-poetry {
+                      position: absolute;
+                      top: 10px;
+                      right: 20px;
+                      font-size: 2rem;
+                      cursor: pointer;
+                      color: #333;
+                    }
+                
+                  </style>
+                </head>
+
+
+<!-- Skills Section -->
+<!-- Skills Section -->
+<section id="skills" class="skills-section">
+  <div class="container">
+
+    <!-- Titres -->
+    <div class="section-title" style="text-align: center;">
+      <h2>Mes Compétences</h2>
+      <h1 style="margin-top:1rem;color:var(--accent); font-size:2rem;">High Skills</h1>
+    </div>
+
+    <!-- Ligne 1 : 5 cartes -->
+    <div class="grid-cards" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+      <!-- Carte 1 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">Machine Learning</div>
+          <div class="flip-side flip-back">
+            Apprentissage automatique basé sur les données
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 2 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">Power BI</div>
+          <div class="flip-side flip-back">
+            Visualisation de données et utilisation de la DAX
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 3 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">Excel</div>
+          <div class="flip-side flip-back">
+            Création de tableau de bord et maîtrise de Power Query
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 4 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">Python</div>
+          <div class="flip-side flip-back">
+            Maîtrise de librairies telles que Pandas, Matplotlib et NumPy
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 5 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">SQL</div>
+          <div class="flip-side flip-back">
+            Extraction de données pertinentes à partir de base de données volumineuse
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Espacement entre les lignes -->
+    <br><br>
+
+    <!-- Ligne 2 : 5 cartes -->
+    <div class="grid-cards" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+
+      <!-- Carte 6 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">R</div>
+          <div class="flip-side flip-back">
+            Analyse et visualisation de données
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 7 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">Statistiques descriptives</div>
+          <div class="flip-side flip-back">
+            Analyse de données à l’aide de mesures statistiques
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 8 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">Statistiques inférentielles</div>
+          <div class="flip-side flip-back">
+            Prédiction d’un phénomène sur une population à partir d’un échantillon
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 9 -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">SAS</div>
+          <div class="flip-side flip-back">
+            Traitement de données et utilisation du langage SQL
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte 10 : RGPD -->
+      <div class="flip-container" style="width: 150px; height: 150px;">
+        <div class="flip-card-method">
+          <div class="flip-side flip-front">RGPD</div>
+          <div class="flip-side flip-back">
+            Connaissance en manipulation de données à caractère personnel
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STYLES -->
+    <style>
+      .flip-card-method {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-container:hover .flip-card-method {
+        transform: rotateY(180deg);
+      }
+
+      .flip-side {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0.5rem;
+        border-radius: 8px;
+        background: var(--secondary);
+        border-left: 4px solid var(--accent);
+        box-sizing: border-box;
+        backface-visibility: hidden;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .flip-front {
+        color: var(--text-light);
+        font-weight: bold;
+        font-size: 0.75rem;
+      }
+
+      .flip-back {
+        color: var(--text);
+        transform: rotateY(180deg);
+        font-size: 0.7rem;
+        line-height: 1rem;
+      }
+    </style>
+
+  </div>
+</section>
+
+    <!-- Sous-titre -->
+    <div class="section-title" style="text-align: center;">
+      <h3 style="margin-top:1rem;color:var(--accent); font-size:2rem;">Soft Skills</h3>
+    </div>
+
+    <!-- STYLES -->
+    <style>
+      .flip-card-method {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-container:hover .flip-card-method {
+        transform: rotateY(180deg);
+      }
+
+      .flip-side {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0.5rem;
+        border-radius: 8px;
+        background: var(--secondary);
+        border-left: 4px solid var(--accent);
+        box-sizing: border-box;
+        backface-visibility: hidden;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .flip-front {
+        color: var(--text-light);
+        font-weight: bold;
+        font-size: 0.85rem;
+      }
+
+      .flip-back {
+        color: var(--text);
+        transform: rotateY(180deg);
+        font-size: 0.7rem;
+        line-height: 1rem;
+      }
+    </style>
+
+  
+
+
+                <style>
+                    .flip-container {
+                      perspective: 1000px;
+                      width: 100%;
+                      max-width: 600px;
+                      margin: auto;
+                    }
+                  
+                    .flip-card-method {
+                      width: 100%;
+                      height: 200px; /* hauteur du rectangle */
+                      position: relative;
+                      transition: transform 0.8s;
+                      transform-style: preserve-3d;
+                    }
+                  
+                    .flip-container:hover .flip-card-method {
+                      transform: rotateY(180deg);
+                    }
+                  
+                    .flip-side {
+                      position: absolute;
+                      width: 100%;
+                      height: 100%;
+                      padding: 1.5rem;
+                      border-radius: 8px;
+                      background: var(--secondary);
+                      border-left: 4px solid var(--accent);
+                      box-sizing: border-box;
+                      backface-visibility: hidden;
+                    }
+                  
+                    .flip-front {
+                      color: var(--text-light);
+                    }
+                  
+                    .flip-back {
+                      color: var(--text);
+                      transform: rotateY(180deg);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      text-align: left;
+                      font-size: 0.9rem;
+                    }
+                </style>
+                  
+                  <div class="flip-container">
+                    <div class="flip-card-method">
+                  
+                      <!-- Face avant -->
+                      <div class="flip-side flip-front">
+                        <h4 style="color: var(--light); margin-bottom: 0.5rem;">Esprit Critique</h4>
+                        <p>Je remets constamment en question les données collectées ainsi que les résultats qui en découlent afin de garantir la fiabilité des études que je réalise.</p>
+                      </div>
+                  
+                      <!-- Face arrière -->
+                      <div class="flip-side flip-back">
+                        <p><strong>Avril 2025</strong> — Lors d’un projet sur Wolfram Mathematica, j’ai analysé un jeu de données trouvé sur Kaggle concernant les crimes en Inde. Le fichier indiquait seulement 800 victimes de viol, ce qui m’a paru incorrect. En consultant le site officiel du National Crime Records Bureau, j’ai découvert que plus de 31 000 cas avaient été recensés en 2022. Cette expérience m’a permis de comprendre qu’il fallait toujours remettre en question les données dont je dispose et prendre du recul sur les résultats observés avant d’effectuer une interprétation.</p>
+                      </div>
+                  
+                    </div>
+                  </div>
+                  <br>                 
+                    
+                  <div class="flip-container">
+                    <div class="flip-card-method">
+                  
+                      <!-- Face avant -->
+                      <div class="flip-side flip-front">
+                        <h4 style="color: var(--light); margin-bottom: 0.5rem;">Autonomie</h4>
+                        <p>Je suis capable de travailler en autonomie tout en respectant les objectifs fixés.</p>
+                      </div>
+                  
+                      <!-- Face arrière -->
+                      <div class="flip-side flip-back">
+                        <p><strong>Avril 2025 / Juin 2025</strong> — Lors de mon stage au GHT Plaine de France, j’ai travaillé en totale autonomie pendant les 10 semaines. Ma tutrice en entreprise ayant une expérience limitée sur SAS, j’ai su faire preuve d’initiative et de débrouillardise pour mener à bien mes missions. </p>
+                      </div>
+                  
+                    </div>
+                  </div>
+                  <br>
+                    
+                  <div class="flip-container">
+                    <div class="flip-card-method">
+                  
+                      <!-- Face avant -->
+                      <div class="flip-side flip-front">
+                        <h4 style="color: var(--light); margin-bottom: 0.5rem;">Persévérance</h4>
+                        <p>Lorsque je suis face à une difficulté, je n’abandonne jamais et je vais jusqu’au bout des choses que j’ai décidé d’entreprendre.</p>
+                      </div>
+                  
+                      <!-- Face arrière -->
+                      <div class="flip-side flip-back">
+                        <p><strong>Janvier 2025</strong> — Lors de la création d'une application interactive, j'ai rencontré de nombreux problèmes techniques avec mon groupe : erreurs sur les widgets, visualisations instables, difficultés à fusionner nos codes répartis. Néanmoins, j'ai persévéré en réglant chaque détail, en communiquant, et en gardant ma motivation intacte jusqu’à aboutir à une application fonctionnelle.</p>
+                      </div>
+                  
+                    </div>
+                  </div>
+
+<style>
+  .flip-sd-container {
+    perspective: 1200px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 3rem auto;
+  }
+
+  .flip-sd-card {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+  }
+
+  .flip-sd-container:hover .flip-sd-card {
+    transform: rotateY(-180deg);
+  }
+
+  .flip-sd-side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  .flip-sd-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 40px;
+    box-shadow: 0 0 40px 10px rgba(0, 123, 255, 0.6);
+  }
+
+  .flip-sd-back {
+    background: linear-gradient(to right, rgba(0, 153, 255, 0.4), #1c1c1c);
+    color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 2;
+    box-shadow: inset 15px 0 30px rgba(0, 123, 255, 0.5);
+    border-radius: 24px;
+    white-space: pre-line;
+  }
+
+  .flip-sd-back h1 {
+    color: var(--accent, #00aaff);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+</style>
+
+<section id="skills" class="skills-section">
+  <div class="container">
+
+    <div class="section-title" style="text-align: center;">
+      <h2>Mon choix : la science des données</h2>
+    </div>
+
+    <div class="flip-sd-container">
+      <div class="flip-sd-card">
+        <div class="flip-sd-side flip-sd-front">
+          <img 
+            src="https://raw.githubusercontent.com/Shanka743/Portfolio/refs/heads/main/BD_SD.jpg" 
+            alt="Bande dessinée - Mon choix : Science des données">
+        </div>
+        <div class="flip-sd-side flip-sd-back">
+          <h1>Des faits qui ont confirmé mon choix...</h1>
+          ❤️ Passionnée par les mathématiques, l’informatique et le machine learning
+
+          📌 Les métiers de la science des données, au cœur de la prise de décision
+
+          🧠 Réel impact de mon travail au sein de l’entreprise
+
+          🌍 Possibilité d’exercer mes compétences dans tous les secteurs (bancaires, santé, assurances…)
+
+          🔁 Un domaine en constante évolution (émergence continue de nouveaux logiciels, nouveaux outils, nouvelles méthodes d’analyse…)
+
+          🤝 Collaboration avec des professionnels issus de domaines variés en dehors du secteur de la data
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+                    
+  
+                <!-- STYLES -->
+<style>
+    :root {
+      --primary: #0d0d0d;
+      --secondary: #1a1a1a;
+      --accent: #00fff7;
+      --light: #e1e1e1;
+      --dark: #0b0f1a;
+      --text: #e6f1ff;
+      --text-light: #7e97aa;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      background-image: url('https://raw.githubusercontent.com/Shanka743/Portfolio/main/IA-3.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-color: var(--dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .projects-section {
+      padding: 50px 0;
+      background-color: transparent;
+    }
+
+    .section-title h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 1rem;
+    }
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  min-height: 900px; /* Augmentée pour voir toute l'image + verso */
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.flip-card-front .project-image {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ✅ Affiche toute l’image sans la couper */
+  display: block;
+  border-radius: 0;
+}
+
+.flip-card-back {
+  background-color: var(--secondary);
+  color: var(--text);
+  transform: rotateY(180deg);
+  padding: 2rem;
+  overflow-y: auto; /* ✅ Scroll uniquement si besoin */
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 2px 10px rgba(0, 255, 247, 0.3);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+    .flip-card-back h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .flip-card-back p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>📊 Mes Projets</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <!-- RECTO -->
+            <div class="flip-card-front">
+              <div class="project-image">
+                <img src="https://raw.githubusercontent.com/Shanka743/Portfolio/main/shiny.png" alt="Shiny">
+              </div>
+              <div class="text-content">
+                <h3>⚡ Application Shiny - Consommation énergétique</h3>
+                <p><strong>🎯 Contexte :</strong> Création d'une application web avec le package Shiny de RStudio.</p>
+                <p><strong>🔑 Prérequis :</strong> Pas d'expérience en développement d'applications web, notions de base dans le langage R et maîtrise partielle du package Shiny.</p>
+                <p><strong>📈 Compétences développées :</strong> Connaissance de base en développement d'applications web, approfondissement des connaissances du langage R et de la librarie Shiny. </p>
+                <p><strong>💡​ Prise de conscience :</strong> Gestion de projet et respect du cahier des charges.</p>
+                <p><strong>↗️​ Évolution :</strong> Évolution dans la gestion de projet.</p>
+                <p><strong>✅ Bonnes pratiques :</strong> Réalisation régulière de tests, structuration de l’application.</p>
+                <p><strong>⚠️ Lacunes à combler :</strong> Meilleure gestion du travail de groupe.</p>
+                <p><strong>🚧 Prochaine étape :</strong> Améliorer le design de l'application, meilleure organiastion et communication du travail de groupe.</p>
+              </div>
+            </div>
+
+            <!-- VERSO -->
+            <div class="flip-card-back">
+              <div>
+                <h3>📝 Plus d'informations concernant le projet</h3>
+                <p><strong>↗️Compétence du BUT développées:</strong> J’ai renforcé mes compétences en traitement, analyse et valorisation de données.
+Grâce au package Shiny de R, j’ai appris à préparer et filtrer les données via des widgets interactifs, à analyser des tendances sur plusieurs années et régions concernant la consommation énergétique en France, et à valoriser mes résultats en choisissant les visualisations les plus adaptées.
+
+</p>
+                <p><strong>🚀Montée en compétence :</strong> Concernant ma progression entre la première et la deuxième année de BUT, j'ai approfondi mes connaissances dans le langage R et découvert un package de R qui est Shiny. De plus, j'ai appris à créer une application web pour mettre en avant des indicateurs clés dans plusieurs régions de France sur plusieurs années. </p>
+                <p><strong>💡Prise de conscience :</strong> Nous avions réparti les tâches de façon à ce que chacun développe une partie de l'application. Au final, nous nous sommes retrouvés avec de nombreux morceaux de code à fusionner, ce qui a retardé la finalisation du projet. Cette expérience m'a appris à mieux estimer mon temps de travail pour la finalisation d'un rendu. De plus j'ai appris à respecter un cahier des charges.</p>
+                <p><strong>🧠Évolution :</strong> Nous avons parfois manqué de coordination, ce qui a conduit à des doublons dans les tâches. J’ai compris qu’une communication claire sur l’avancement et la répartition du travail est essentielle pour éviter les erreurs et améliorer la productivité collective.</p>
+                <p><strong>⚠️ Points à améliorer :</strong> Ce projet m’a appris l’importance d’adopter, dès le lancement, de bons réflexes en terme d'organisation comme la création d’un espace de travail commun (ex. : Google Drive) structuré avec un onglet dédié à chaque fonctionnalité, ce que nous avons finalement mis en place en cours de projet.</p>
+                <p><strong>🚧 Prochaine étape :</strong> J’ai compris l’importance de consacrer plus de temps à la personnalisation de l’application afin de mieux valoriser et démarquer mon travail.
+Ce projet m’a aussi appris à mieux gérer le travail en groupe, notamment en mettant en place un espace collaboratif adapté (comme un Google Drive organisé par onglets) et en assurant une communication régulière sur l’avancement de chacun.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="container">
+      <div class="projects-grid">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <!-- RECTO -->
+            <div class="flip-card-front">
+              <div class="project-image">
+                <img src="https://raw.githubusercontent.com/Shanka743/Portfolio/main/Diagramme_venn.png" alt="Statistiques">
+              </div>
+              <div class="text-content">
+                <h3>🍝​ Analyse des habitudes alimentaires</h3>
+                <p><strong>🎯 Contexte :</strong> Généraliser un phénomène sur une population à partir d'un échantillon.</p>
+                <p><strong>🔑 Prérequis :</strong> Connaissances approfondies en techniques de sondage, statistiques inférentielles et statistiques descriptives.</p>
+                <p><strong>📈 Compétences développées :</strong> Développement de compétences dans la prise de décision concernant le plan de sondage, la qualité de l'échantillon et le langage R </p>
+                <p><strong>💡​ Prise de conscience :</strong> J’ai pris conscience de l’impact que peut avoir le choix du plan de sondage sur la qualité des résultats et la représentativité des analyses menées. </p>
+                <p><strong>↗️​ Évolution :</strong>J’ai progressé dans ma capacité à prendre des décisions statistiques justifiées.</p>
+                <p><strong>✅ Bonnes pratiques :</strong>Utilisation d’une méthodologie rigoureuse pour le tirage de l’échantillon. </p>
+                <p><strong>⚠️ Lacunes à combler :</strong> Améliorer la communication et la coordination en groupe, notamment lors de la prise de décision collective.</p>
+                <p><strong>🚧 Prochaine étape :</strong>Renforcer la communication, aussi bien au sein du groupe qu’avec les interlocuteurs extérieurs. </p>
+              </div>
+            </div>
+
+            <!-- VERSO -->
+            <div class="flip-card-back">
+              <div>
+                <h3>📝 Plus d'informations concernant le projet</h3>
+                <p><strong>↗️Compétence du BUT développées:</strong> J’ai développé des compétences solides en prise de décision. Face à un contexte d’étude précis, j’ai appris à identifier et mettre en œuvre le plan de sondage le plus pertinent. Cette démarche m’a permis de mieux comprendre l’impact des choix méthodologiques sur la qualité des résultats. J’ai également renforcé ma capacité à évaluer la représentativité d’un échantillon tout en approfondissant ma maîtrise du langage R.
+
+</p>
+                <p><strong>🚀Montée en compétence :</strong> Concernant ma progression entre la première et la deuxième année de BUT, j'ai approfondi mes connaissances dans le langage R et appris à évaluer la qualité d'un échantillon étudié. </p>
+                <p><strong>🧠Évolution :</strong> J’ai gagné en autonomie dans la planification, l’analyse statistique et la gestion d’un projet. </p>
+                <p><strong>⚠️ Points à améliorer :</strong> Meilleure coordination des tâches en groupe et anticipation des difficultés de collaboration avec les relations extérieures.</p>
+                <p><strong>🚧 Prochaine étape :</strong> Renforcer la communication, aussi bien au sein du groupe qu’avec les relations extérieurs.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<div class="container">
+  <div class="projects-grid">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+
+        <!-- RECTO -->
+        <div class="flip-card-front">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/Shanka743/Portfolio/main/cluster.png" alt="Statistiques">
+          </div>
+          <div class="text-content">
+            <h3>📈 ACP et régression linéaire</h3>
+            <p><strong>🎯 Contexte :</strong> J’ai travaillé à partir d’un fichier CSV contenant 240 variables. J’ai d’abord utilisé l’ACP pour réduire le nombre de colonnes tout en conservant l’essentiel de l’information. Ensuite, j’ai appliqué une régression linéaire afin de prédire une variable cible à partir des variables issues de l’ACP.</p>
+            <p><strong>🔑 Prérequis :</strong> Connaissances en Python, méthodes factorielles et modélisation linéaire.</p>
+            <p><strong>📈 Compétences développées :</strong> Renforcement des compétences en réduction de colonnes et prédiction de données.</p>
+            <p><strong>💡 Prise de conscience :</strong> Adopter une démarche rigoureuse et argumentée dans la sélection des variables, surtout lorsque je travaille sur des données complexes et volumineuses.</p>
+            <p><strong>↗️ Évolution :</strong> J’ai gagné en assurance dans mes choix méthodologiques comme l’intégration du clustering pour guider l’analyse.</p>
+            <p><strong>✅ Bonnes pratiques :</strong> Refus d’une sélection aléatoire des variables, utilisation combinée de l’ACP et du clustering.</p>
+            <p><strong>⚠️ Lacunes à combler :</strong> Meilleure justification de mes choix face à un jury en ce qui concerne le type de distance utilisé dans le HCA.</p>
+            <p><strong>🚧 Prochaine étape :</strong> Explorer d’autres méthodes d’analyse exploratoire multidimensionnelle.</p>
+          </div>
+        </div>
+
+        <!-- VERSO -->
+        <div class="flip-card-back">
+          <div>
+            <h3>📝 Plus d'informations concernant le projet</h3>
+            <p><strong>↗️ Compétence du BUT développée :</strong> J’ai développé des compétences solides en prise de décision. Face à un contexte d’étude précis, j’ai appris à identifier et mettre en œuvre le plan de sondage le plus pertinent. Cette démarche m’a permis de mieux comprendre l’impact des choix méthodologiques sur la qualité des résultats. J’ai également renforcé ma capacité à évaluer la représentativité d’un échantillon tout en approfondissant ma maîtrise du langage R.</p>
+            <p><strong>🚀 Montée en compétence :</strong> Concernant ma progression entre la première et la deuxième année de BUT, j'ai approfondi mes connaissances en Python.</p>
+            <p><strong>🧠 Évolution :</strong> Entre le BUT 1 et le BUT 2, j’ai gagné en confiance dans mes idées et mes choix méthodologiques. Lors de ce projet, l’approche classique aurait été de me baser sur le cercle de corrélation après une ACP pour sélectionner les variables à conserver. Cependant, j’ai rapidement réalisé que cette méthode serait peu pertinente et difficilement exploitable avec un nombre aussi élevé de colonnes. Plutôt que de faire une sélection visuelle peu rigoureuse, j’ai pris l’initiative de proposer une approche par clustering, afin d’identifier des groupes de variables similaires de manière structurée. Ce choix, qui n’était pas prévu initialement, m’a permis d’aborder le problème de façon plus logique et méthodique.</p>
+            <p><strong>⚠️ Points à améliorer :</strong> Lors de l’analyse, j’ai compris qu’il ne suffisait pas d’appliquer une méthode comme la HCA de manière automatique : chaque paramètre influence les résultats, et le type de distance choisi (euclidienne, Manhattan, de Ward, etc.) a un impact direct sur la structure des groupes obtenus. Face à un jury, il est donc impératif de savoir expliquer pourquoi un type de distance a été retenu.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="projects-grid">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+
+        <!-- RECTO -->
+        <div class="flip-card-front">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/Shanka743/Portfolio/main/tbd.png" alt="Statistiques">
+          </div>
+          <div class="text-content">
+            <h3>📈 Création d’un tableau de bord Excel</h3>
+            <p><strong>🎯 Contexte :</strong> Créer un outil de suivi visuel et interactif pour faciliter l’analyse et la prise de décision. </p>
+            <p><strong>🔑 Prérequis :</strong> Maîtrise des fonctions Excel avancées (Power Query, formules, filtres et TCD)</p>
+            <p><strong>📈 Compétences développées :</strong> Création de graphiques dynamiques et structuration d’un tableau de bord clair.</p>
+            <p><strong>💡 Prise de conscience :</strong> Choisir les visualisations les plus adaptées pour mettre en valeur les faits marquants de manière impactante. </p>
+            <p><strong>↗️ Évolution :</strong> J’ai amélioré ma capacité à organiser mon travail.</p>
+            <p><strong>✅ Bonnes pratiques :</strong> Nommer les feuilles Excel correctement dès le commencement du projet.</p>
+            <p><strong>⚠️ Lacunes à combler :</strong> Gagner en rigueur dans les choix de visualisations.</p>
+            <p><strong>🚧 Prochaine étape :</strong> Approfondir l’usage de Power Query.</p>
+          </div>
+        </div>
+
+        <!-- VERSO -->
+        <div class="flip-card-back">
+          <div>
+            <h3>📝 Plus d'informations concernant le projet</h3>
+            <p><strong>↗️ Compétence du BUT développée :</strong> J’ai développé des compétences solides en valorisation de données en produisant des représentations synthétiques et adaptées à la prise de décision et en utilisant des fonctionnalités avancées comme Power Query.</p>
+            <p><strong>🚀 Montée en compétence :</strong> Concernant ma progression entre la première et la deuxième année de BUT, j’ai découvert des fonctionnalités avancées comme Power Query.</p>
+            <p><strong>🧠 Évolution :</strong> Entre le BUT 1 et le BUT 2, j’ai gagné en autonomie dans l’organisation de mon travail, en structurant dès le départ mes feuilles.</p>
+            <p><strong>⚠️ Points à améliorer :</strong> Je dois encore progresser dans la justification de mes choix de visualisation, et apprendre à mieux adapter mes tableaux de bord à différents types d’utilisateurs. Je souhaite également approfondir l’automatisation de certaines tâches.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="projects-grid">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+
+        <!-- RECTO -->
+        <div class="flip-card-front">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/Shanka743/Portfolio/main/tableau_img.png" alt="Statistiques">
+          </div>
+          <div class="text-content">
+            <h3>📊 Datavisualisation</h3>
+            <p><strong>🎯 Contexte :</strong> Créer des visualisations sur Tableau sur des données météorologiques pour en extraire les tendances principales.</p>
+            <p><strong>🔑 Prérequis :</strong> Maîtrise de Tableau.</p>
+            <p><strong>📈 Compétences développées :</strong> Création de graphiques dynamiques et structuration d’un tableau de bord clair.</p>
+            <p><strong>💡 Prise de conscience :</strong> Un bon graphique ne repose pas uniquement sur l’esthétique mais sur sa capacité à transmettre un message avec impact.</p>
+            <p><strong>↗️ Évolution :</strong> J’ai appris à mieux structurer mes visualisations.</p>
+            <p><strong>✅ Bonnes pratiques :</strong> Uniformiser les couleurs des graphiques.</p>
+            <p><strong>⚠️ Lacunes à combler :</strong> Mieux gérer le temps imparti.</p>
+            <p><strong>🚧 Prochaine étape :</strong> Mieux exploiter les fonctionnalités avancées de Tableau.</p>
+          </div>
+        </div>
+
+        <!-- VERSO -->
+        <div class="flip-card-back">
+          <div>
+            <h3>📝 Plus d'informations concernant le projet</h3>
+            <p><strong>↗️ Compétence du BUT développée :</strong> J’ai développé des compétences solides en valorisation de données en produisant des représentations claires et impactantes.</p>
+            <p><strong>🚀 Montée en compétence :</strong> Concernant ma progression entre la première et la deuxième année de BUT, ce projet m’a permis de consolider ma maîtrise du logiciel Tableau, non seulement dans la création de graphiques mais aussi dans l’utilisation de filtres, légendes et paramètres avancés.</p>
+            <p><strong>🧠 Évolution :</strong> Entre le BUT 1 et le BUT 2, j’ai appris à privilégier la simplicité visuelle et à construire une narration fluide dans les graphiques présentés à un auditoire.</p>
+            <p><strong>⚠️ Points à améliorer :</strong> Je dois encore progresser dans la gestion du temps accordé à chaque étape du projet.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="projects-grid">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+
+        <!-- RECTO -->
+        <div class="flip-card-front">
+          <div class="project-image">
+            <img src="https://raw.githubusercontent.com/Shanka743/Portfolio/main/206_portfolio.png" alt="Statistiques">
+          </div>
+          <div class="text-content">
+            <h3>📊 Projet de traitement, d'analyse et de valorisation de données</h3>
+            <p><strong>🎯 Contexte :</strong>Étude d'une base de données volumineuse afin de traiter, analyser et valoriser les données.</p>
+            <p><strong>🔑 Prérequis :</strong> Maîtrise de Python (notamment la librairie Pandas), connaissances en nettoyage de données, en analyse statistique et en visualisation des données.</p>
+            <p><strong>📈 Compétences développées :Traitement de données massives et croisement de bases complémentaires.</strong> .</p>
+            <p><strong>💡 Prise de conscience :</strong>Savoir contextualiser les résultats.</p>
+            <p><strong>↗️ Évolution :</strong> J’ai appris à structurer un projet, en partant de données brutes jusqu’à la valorisation finale.</p>
+            <p><strong>✅ Bonnes pratiques :</strong> Nettoyage rigoureux des données avec Pandas et vérification systématique de la cohérence des informations.</p>
+            <p><strong>⚠️ Lacunes à combler :</strong> Anticiper la recherche de données complémentaires dès le début du projet.</p>
+            <p><strong>🚧 Prochaine étape :</strong>Renforcer l’aspect narratif de l'étude menée.</p>
+          </div>
+        </div>
+
+        <!-- VERSO -->
+        <div class="flip-card-back">
+          <div>
+            <h3>📝 Plus d'informations concernant le projet</h3>
+            <p><strong>↗️ Compétence du BUT développée :</strong> Ce projet m’a permis de mettre en pratique mes compétences en traitement, analyse et valorisation de données depuis la gestion d’une base de données importante jusqu’à la production de livrables adaptés à la communication des résultats.</p>
+            <p><strong>🚀 Montée en compétence :</strong> J’ai renforcé ma capacité à croiser des données externes pour enrichir l’analyse et à restituer les résultats sous des formes variées (rapport écrit, vidéo...)</p>
+            <p><strong>🧠 Évolution :</strong>J’ai gagné en autonomie dans la conduite d’un projet de données complet.</p>
+            <p><strong>⚠️ Points à améliorer :</strong>Améliorer ma méthodologie de recherche de données complémentaires.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+
+        
+
+    
+<!-- Specialties Section -->
+<section id="specialties" class="specialties-section" style="background-color: transparent;">
+    <div class="container">
+        <div class="section-title">
+            <h2>Stage</h2>
+            <p><strong>GHT Plaine de France</strong><br>
+            Analyste de données de santé – Avril à Juin 2025<br>
+            <em>Étude menée sur la précarité</em></p>
+        </div>
+        <div class="specialties-container">
+            <div class="specialty-card">
+                <div class="specialty-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Traitement de données - SAS</h3>
+                <p>Sélection et filtrage de données sur SAS via la création d’un flux de processus.</p>
+                <p>Extraction des données réalisée à l’aide de code SAS et de requêtes SQL.</p>
+            </div>
+            
+            <div class="specialty-card">
+                <div class="specialty-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Analyse de données - Excel</h3>
+                <p>Analyse des données de santé exportées de SAS et mise en avant d'indicateurs concernant la précarité.</p>
+            </div>
+            
+            <div class="specialty-card">
+                <div class="specialty-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Valorisation de données - Diaporama</h3>
+                <p>Présentation de l'étude aux représentants du GHT Plaine de France par le biais de diaporamas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+body {
+    background-image: url('https://raw.githubusercontent.com/Shanka743/Portfolio/main/IA-3.png'); /* Remplace par l'URL directe de ton image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: var(--dark);  /* Couleur de fond de secours si l'image ne charge pas */
+}
+</style>
+
+
+
+
+
+          
+          
+          
+
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Disponible pour des opportunités</h3>
+                    <p>Je suis actuellement à la recherche d'une alternance dans le domaine de la Data Science à partir de septembre 2025. N'hésitez pas à me contacter pour discuter de collaborations potentielles.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+                            <span>shankavi.selvanathan@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+                            <span>+33 7 67 69 62 52</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <span>95380, Louvres</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shankavi-selvanathan-032358300" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Votre nom" required>
+                        <input type="email" placeholder="Votre email" required>
+                        <input type="text" placeholder="Sujet">
+                        <textarea placeholder="Votre message" required></textarea>
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Shankavi Selvanathan</h3>
+                <p>Étudiante en Science des Données | Objet à long terme : Devenir Data Scientist</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/shankavi-selvanathan-032358300" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <p class="copyright">© 2023 Shankavi Selvanathan. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals for Projects -->
+    <!-- Projet 1 Modal -->
+    <div id="projet1-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Application Shiny - Consommation énergétique</h2>
+            
+            <h3>🎯 Contexte et prérequis</h3>
+            <p>
+                <div id="popup1" class="popup-overlay" style="display: none;">
+                    <div class="popup-content">
+                      <span class="close-btn" onclick="closePopup('popup1')">&times;</span>
+                      <p><strong>toto et ses blagues</strong></p>
+                    </div>
+                  </div>
+                  
+
+                                  
+</body>
